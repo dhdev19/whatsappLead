@@ -51,6 +51,7 @@ def send_whatsapp():
     if not user_id:
         return jsonify({"error": "Missing user_id"}), 400
 
+    user_id = int(user_id)
     # Fetch WhatsApp number from DB
     try:
         conn = get_db_connection()
