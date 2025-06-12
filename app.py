@@ -38,7 +38,8 @@ def format_key(key):
 @app.route("/send-whatsapp", methods=["POST"])
 def send_whatsapp():
     # Accept JSON or form-urlencoded data
-    form_data = request.get_json() if request.is_json else request.form.to_dict()
+    # form_data = request.get_json() if request.is_json else request.form.to_dict()
+    form_data = request.form.to_dict()
     
     if not form_data:
         return jsonify({"error": "No form data received"}), 400
