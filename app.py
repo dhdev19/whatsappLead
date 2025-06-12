@@ -40,7 +40,10 @@ def send_whatsapp():
     # Accept JSON or form-urlencoded data
     # form_data = request.get_json() if request.is_json else request.form.to_dict()
     form_data = request.form.to_dict()
-    
+    print("Form data:", request.form.to_dict())
+    print("Raw data:", request.data)
+    print("Headers:", dict(request.headers))
+
     if not form_data:
         return jsonify({"error": "No form data received"}), 400
 
