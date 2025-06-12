@@ -203,12 +203,22 @@ def send_whatsapp():
     message_text = "\n".join(message_lines)
 
     # WhatsApp API payload
+    # payload = {
+    #     "messaging_product": "whatsapp",
+    #     "to": recipient_number,
+    #     "type": "text",
+    #     "text": {"body": message_text}
+    # }
     payload = {
-        "messaging_product": "whatsapp",
-        "to": recipient_number,
-        "type": "text",
-        "text": {"body": message_text}
-    }
+    "messaging_product": "whatsapp",
+    "to": recipient_number,
+    "type": "template",
+    "template": {
+        "name": "hello_world",  # Or your approved template name
+        "language": {
+            "code": "en_US"
+        }}}
+
 
     headers = {
         "Authorization": f"Bearer {WHATSAPP_TOKEN}",
