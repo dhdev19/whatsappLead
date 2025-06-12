@@ -43,7 +43,7 @@ def send_whatsapp():
     try:
         conn = get_db_connection()
         with conn.cursor() as cursor:
-            cursor.execute("SELECT whatsapp_number FROM users WHERE user_id = %s", (user_id,))
+            cursor.execute("SELECT whatsapp_number FROM leadUsers WHERE user_id = %s", (user_id,))
             user = cursor.fetchone()
         conn.close()
     except Exception as e:
